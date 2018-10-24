@@ -32,3 +32,4 @@ message varchar(280) not null
 удалить таблицу: `DROP TABLE messenger;`  
 вставка в таблицу: `INSERT INTO messenger VALUES (1, '<YOUR_NAME>', '<YOUR_MESSAGE>');`  
 просмотр содержимого: `SELECT * FROM messenger;`  
+удалить все строки `DELETE FROM messenger;`
