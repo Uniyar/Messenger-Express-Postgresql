@@ -48,7 +48,7 @@ app.post('/add', function(req, res) {
 
 	client.query(`INSERT INTO ${USER_SERVER.table}(name, message) VALUES($1, $2)`, 
 		[req.body.name, req.body.message], (err, res2) => {
-	  		res.redirect('/');
+	  		// res.redirect('/');
 	  		client.end();
 
 		});
