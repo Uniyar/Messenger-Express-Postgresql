@@ -1,1 +1,18 @@
+<div>
+	<form method="post" action="/add">
+		<label for="name">name</label>
+		<input id="name" type="text" name="name">
+		<label for="message">message</label>
+		<input id="message" type="text" name="message">
+		<input type="submit" value="Save">
+	</form>
+</div>
+
+<div class="container">
+	{{#each temp }}
+		<div>		
+			{{ this.id }}: {{ this.name }} - {{ this.message }}
+		</div>
+	{{/each}}
+</div>
 
