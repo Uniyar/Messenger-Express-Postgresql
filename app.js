@@ -43,6 +43,8 @@ app.post('/add', function(req, res) {
   	  ssl: true
 	});
 	client.connect();
+	console.log(req.body.name)
+	console.log(req.body.message)
 
 	client.query(`INSERT INTO ${USER_SERVER.table}(name, message) VALUES($1, $2)`, 
 		[req.body.name, req.body.message], (err, res2) => {
