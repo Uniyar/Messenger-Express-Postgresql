@@ -30,10 +30,10 @@
 		    // console.log(settings)
 		  },
 		  success: function(data, textStatus, jqXHR){
-		  	var html = $.parseHTML(data)
-		  	// console.log(html[10].children.length)
-		  	// console.log(html[10].children)
-		  	var arr_msgs = html[12].children
+		  	var html = $.parseHTML(data);
+		  	// console.log(html[10].children.length);
+		  	console.log(html);
+		  	var arr_msgs = html[12].children;
 		  	$('#section').text('');
 		  	$.each(arr_msgs, function( index, value ) {
 		  	  var temp = $(value).text().split('---');	
