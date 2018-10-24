@@ -31,7 +31,7 @@ app.get('/', function(req, res){
 	});
 	client.connect();
 
-	client.query(`SELECT * FROM ${USER.table}`, (err, res2) => {
+	client.query(`SELECT * FROM ${USER_SERVER.table}`, (err, res2) => {
 	  res.render('home', {temp: res2.rows});
 	  client.end();
 	});
@@ -45,7 +45,7 @@ app.post('/add', function(req, res) {
 	});
 	client.connect();
 
-	client.query(`INSERT INTO ${USER.table}(name, messange) VALUES($1, $2)`, 
+	client.query(`INSERT INTO ${USER_SERVER.table}(name, messange) VALUES($1, $2)`, 
 		[req.body.name, req.body.messange], (err, res2) => {
 	  		res.redirect('/');
 	  		client.end();
@@ -60,7 +60,7 @@ app.delete('/delete/:id', function(req, res) {
 	});
 	client.connect();
 
-	client.query(`DELETE FROM ${USER.table} WHERE id = $1`, 
+	client.query(`DELETE FROM ${USER_SERVER.table} WHERE id = $1`, 
 		[req.params.id], (err, res2) => {
 	  		client.end();
 	  		res.sendStatus(200); 
