@@ -1,0 +1,17 @@
+{
+  "name": "Messenger-Express-Postgresql",
+  "version": "1.0.0",
+  "description": "projects for Uniyar",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Andrey Kuznetsov",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "*",
+    "express": "*",
+    "express-handlebars": "*",
+    "pg": "*"
+  }
+}
