@@ -1,1 +1,46 @@
+<div class="header">
+	<form method="post" action="/add">
+		<label for="name">name</label>
+		<input class="input" id="name" type="text" name="name">
+		<label for="message">message</label>
+		<input class="input" id="message" type="text" name="message">
+		<input class="input" id="form_submit" type="submit" value="Save">
+	</form>
+</div>
 
+<div class="hidden" id="container">
+	{{#each temp }}
+		{{!-- <p>{{this.id}}---{{this.name}}---{{this.message}}</p> --}}
+		<p>{{this.name}}---{{this.message}}</p>
+	{{/each}}
+</div>
+<div id="section" class="section"></div>
+<script>
+	$('#form_submit').click(function() {
+		setTimeout(function() {
+			$('#name').val('');	
+			$('#message').val('');			
+		}, 100);
+	});
+	setInterval(function() {
+		$.ajax({
+		  url: "/",
+		  dataType: "html",
+		  beforeSend: function(jqXHR, settings) {
+		    // console.log(settings)
+		  },
+		  success: function(data, textStatus, jqXHR){
+		  	var html = $.parseHTML(data)
+		  	// console.log(html[10].children.length)
+		  	// console.log(html[10].children)
+		  	var arr_msgs = html[12].children
+		  	$('#section').text('');
+		  	$.each(arr_msgs, function( index, value ) {
+		  	  var temp = $(value).text().split('---');	
+			  var p = $('<p>').text(temp[0] + ": " + temp[1])
+			  $('#section').append(p);
+			});
+		  }		
+		});
+	}, 1000);
+</script>

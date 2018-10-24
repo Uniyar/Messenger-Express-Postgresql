@@ -24,7 +24,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
 app.get('/', function(req, res){
-
 	const client = new Client({
 	  connectionString: connect,
 	  ssl: true
@@ -45,9 +44,9 @@ app.post('/add', function(req, res) {
 	});
 	client.connect();
 
-	client.query(`INSERT INTO ${USER_SERVER.table}(name, messange) VALUES($1, $2)`, 
-		[req.body.name, req.body.messange], (err, res2) => {
-	  		res.redirect('/');
+	client.query(`INSERT INTO ${USER_SERVER.table}(name, message) VALUES($1, $2)`, 
+		[req.body.name, req.body.message], (err, res2) => {
+	  		// res.redirect('/');
 	  		client.end();
 
 		});
